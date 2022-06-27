@@ -74,8 +74,8 @@ class Food():
         pygame.draw.rect(surface, (93, 216, 228), r, 1)
 
 def drawGrid(surface):
-    for y in range(0, int(grid_height)):
-        for x in range(0, int(grid_width)):
+    for y in range(int(grid_height)):
+        for x in range(int(grid_width)):
             if (x+y)%2 == 0:
                 r = pygame.Rect((x*gridsize, y*gridsize), (gridsize,gridsize))
                 pygame.draw.rect(surface,(93,216,228), r)
