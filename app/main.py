@@ -1,3 +1,4 @@
+import itertools
 import pygame
 import sys
 import random
@@ -74,14 +75,13 @@ class Food():
         pygame.draw.rect(surface, (93, 216, 228), r, 1)
 
 def drawGrid(surface):
-    for y in range(0, int(grid_height)):
-        for x in range(0, int(grid_width)):
-            if (x+y)%2 == 0:
-                r = pygame.Rect((x*gridsize, y*gridsize), (gridsize,gridsize))
-                pygame.draw.rect(surface,(93,216,228), r)
-            else:
-                rr = pygame.Rect((x*gridsize, y*gridsize), (gridsize,gridsize))
-                pygame.draw.rect(surface, (84,194,205), rr)
+    for y, x in itertools.product(range(int(grid_height)), range(int(grid_width))):
+        if (x+y)%2 == 0:
+            r = pygame.Rect((x*gridsize, y*gridsize), (gridsize,gridsize))
+            pygame.draw.rect(surface,(93,216,228), r)
+        else:
+            rr = pygame.Rect((x*gridsize, y*gridsize), (gridsize,gridsize))
+            pygame.draw.rect(surface, (84,194,205), rr)
 
 screen_width = 480
 screen_height = 480
